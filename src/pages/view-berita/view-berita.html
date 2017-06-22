@@ -1,0 +1,69 @@
+<!--Bagian Header-->
+<ion-header>
+
+      <ion-navbar color="danger">
+        <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Berita</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+   <ion-navbar color="danger">
+    <ion-title>
+  Tambah Berita Kampus
+    </ion-title>
+       <ion-buttons end>
+      <button ion-button icon-only (click)="addEntry()"> <ion-icon name="add-circle"></ion-icon></button>
+    </ion-buttons>
+</ion-navbar>
+
+
+   <!--<ion-item *ngFor="let item of items">
+      <h2>{{ item.judul }} </h2>
+      <button
+         ion-button
+         color="primary"
+         item-right
+         (click)="viewEntry({ record: item })">View</button>
+   </ion-item>-->
+
+    <ion-card  *ngFor="let item of items">
+      <img src="img/logo.png"/>
+      <ion-card-content>
+        <ion-card-title>
+         {{ item.judul }}
+        </ion-card-title>
+        <p>
+        {{item.content| slice:0:60}} ...
+        </p>
+      </ion-card-content>
+
+      <ion-row>
+        <ion-col>
+        <button ion-button icon-left clear small (click)="viewEntry({ record: item })">
+          <ion-icon name="information-circle"></ion-icon>
+          <div>View/Edit</div>
+        </button>
+        </ion-col>
+
+        <ion-col>
+          <ion-note>
+          <ion-icon icon-left name="calendar"></ion-icon>
+          {{item.tgl_dibuat}}
+          </ion-note>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+
+
+</ion-content>
+<ion-footer>
+  <ion-toolbar color="danger">
+  <ion-title>@copyright STMIK AKAKOM YOGYAKARTA 2017 </ion-title>
+  </ion-toolbar>
+</ion-footer>
